@@ -2,8 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://loginUser:fwJGo5eUOWm9fho6@cluster0.ggphq.mongodb.net/user?retryWrites=true&w=majority"
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.ggphq.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 const app = express();
+require('dotenv').config()
 
 app.use(cors());
 app.use(bodyParser.json());
